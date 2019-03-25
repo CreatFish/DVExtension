@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DVExtension"  #存储库名称
-  s.version      = "1.0.0"          #版本号，与tag值一致
+  s.version      = "1.0.1"          #版本号，与tag值一致
   s.summary      = "Swift Extension" #简介
   s.description  = "一个自用的Swift Extension"   #描述
   s.homepage     = "https://github.com/CreatFish/DVExtension" #项目主页，不是git地址

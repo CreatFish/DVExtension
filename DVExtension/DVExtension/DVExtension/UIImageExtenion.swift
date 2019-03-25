@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
     // MARK:- 颜色生成图片
-    static func imageFromColor(color: UIColor, size: CGSize) -> UIImage {
+    public static func imageFromColor(color: UIColor, size: CGSize) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -24,7 +24,7 @@ extension UIImage {
     }
     
     // MARK:- 裁剪图片
-    func clipImageInRect(_ rect: CGRect) -> UIImage {
+    public func clipImageInRect(_ rect: CGRect) -> UIImage {
         let imageRef = self.cgImage?.cropping(to: rect)
         let thumbScale = UIImage(cgImage: imageRef!)
         
@@ -32,7 +32,7 @@ extension UIImage {
     }
     
     // MARK:- 自适应裁剪,等比例裁剪尽可能大的图片
-    func clipAspectFit(_ size: CGSize) -> UIImage {
+    public func clipAspectFit(_ size: CGSize) -> UIImage {
         if size.width > self.size.width || size.height > self.size.height {
             print("要裁剪的大小大于图片尺寸!")
             //缩放系数
@@ -77,7 +77,7 @@ extension UIImage {
     }
     
     // MARK:- 缩放图片
-    func OriginImage(size: CGSize) -> UIImage{
+    public func OriginImage(size: CGSize) -> UIImage{
         UIGraphicsBeginImageContext(size)
         self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -87,7 +87,7 @@ extension UIImage {
     }
     
     // MARK:- 生成二维码
-    static func createQRForString(qrString: String?, qrImageName: String?) -> UIImage?{
+    public static func createQRForString(qrString: String?, qrImageName: String?) -> UIImage?{
         if let sureQRString = qrString{
             let stringData = sureQRString.data(using: String.Encoding.utf8, allowLossyConversion: false)
             //创建一个二维码的滤镜
@@ -129,7 +129,7 @@ extension UIImage {
     }
     
     // MARK:- 压缩图片
-    func zipImage() -> UIImage? {
+    public func zipImage() -> UIImage? {
         
         var data = self.jpegData(compressionQuality: 1.0)
         if data?.count ?? 0 > 1024*1024 {

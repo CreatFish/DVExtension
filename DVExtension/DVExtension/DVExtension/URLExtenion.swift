@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 import AVKit
 
-extension URL {
+public extension URL {
     
     // MARK:- 获取url中的参数
-    func getArg(_ k:String)->String{
+    public func getArg(_ k:String)->String{
         var substr:String?
         let sarr = self.query?.split("?")
         if (sarr?.count ?? 0) <= 1{
@@ -43,7 +43,7 @@ extension URL {
     }
     
     // MARK:- 获取网络视频的第一帧图片
-    func firstFrameWithVideoURL(imgBlock : @escaping(UIImage?) -> ()) {
+    public func firstFrameWithVideoURL(imgBlock : @escaping(UIImage?) -> ()) {
         DispatchQueue.global().async {
             var img = UIImage()
             let number = NSNumber.init(value: false)

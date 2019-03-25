@@ -8,10 +8,10 @@
 
 import UIKit
 
-extension UIImageView {
+public extension UIImageView {
     
     // MARK:- 高效绘制圆角button
-    func circleView(cornerRadius: CGFloat) {
+    public func circleView(cornerRadius: CGFloat) {
         //  正确的线宽为1的高度
         let realOneWidth = 1 / UIScreen.main.scale
         // 开始图形上下文

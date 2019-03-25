@@ -10,9 +10,9 @@ import UIKit
 
 private weak var currentFirstResponder: AnyObject?
 
-extension UIResponder {
+public extension UIResponder {
     
-    static func firstResponder() -> AnyObject? {
+    public static func firstResponder() -> AnyObject? {
         currentFirstResponder = nil
         // 通过将target设置为nil，让系统自动遍历响应链
         // 从而响应链当前第一响应者响应我们自定义的方法

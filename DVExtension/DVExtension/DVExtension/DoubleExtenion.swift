@@ -8,20 +8,20 @@
 
 import Foundation
 
-extension Double {
+public extension Double {
     
     // MARK:- 格式化成想保留几位的字符串
-    func formatDouble(count: Int) -> String {
+    public func formatDouble(count: Int) -> String {
         let str = String(format: "%.\(count)f", self)
         return str
     }
     
 }
 
-extension Float {
+public extension Float {
     
     // MARK:- 格式化成想保留几位的字符串
-    func formatFloat(count: Int) -> String {
+    public func formatFloat(count: Int) -> String {
         let str = String(format: "%.\(count)f", self)
         return str
     }

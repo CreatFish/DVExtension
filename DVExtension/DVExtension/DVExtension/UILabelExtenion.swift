@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-extension UILabel {
+public extension UILabel {
     
     // MARK:- 给label设置文字设置不同属性,暂支持颜色与字体,示例:label.setDifferentAttWith["示例": UIColor.red]
-    func setDifferentAttWith(_ array: [[String: Any]]) {
+    public func setDifferentAttWith(_ array: [[String: Any]]) {
         let labelText = self.text! as NSString
         let attribute = NSMutableAttributedString(string: labelText as String)
         for element in array {
@@ -29,7 +29,7 @@ extension UILabel {
     }
     
     // MARK:- 给label的text添加中划线
-    func setMidLineWith(text: String) {
+    public func setMidLineWith(text: String) {
         let attr = NSMutableAttributedString(string: text)
         attr.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSNumber(value: 1), range: NSMakeRange(0, attr.length))
         self.attributedText = attr

@@ -9,17 +9,17 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     // MARK:- 清除一所有子view
-    func removeAllSubView() {
+    public func removeAllSubView() {
         for view in self.subviews {
             view.removeFromSuperview()
         }
     }
     
     // MARK:- 在view上画一根1像素的线,真正的1像素
-    func drawLineWith(startPoint: CGPoint, endPoint: CGPoint, color: UIColor) {
+    public func drawLineWith(startPoint: CGPoint, endPoint: CGPoint, color: UIColor) {
         //  正确的线宽为1的高度
         let realOneWidth = 1 / UIScreen.main.scale
         //  设置线宽为1时的偏移，使用时 x - kRealOneWidthPffset
@@ -36,7 +36,7 @@ extension UIView {
     }
     
     // MARK:- view转图片
-    func generateImage() -> UIImage? {
+    public func generateImage() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()!
         self.layer.render(in: context)

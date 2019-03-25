@@ -9,22 +9,22 @@
 import Foundation
 import UIKit
 
-extension String {
+public extension String {
     
     // MARK:- 显示手机号码，中间四位用*代替
-    func mobileStr() -> String {
+    public func mobileStr() -> String {
         let str = self.prefix(3) + "****" + self.suffix(4)
         return String(str)
     }
     
     // MARK:- 显示银行卡号，中间八位用*代替
-    func bankStr() -> String {
+    public func bankStr() -> String {
         let str = self.prefix(4) + " **** **** " + self.suffix(4)
         return String(str)
     }
     
     // MARK:- 格式化时间戳，将时间戳转换为日期时间格式显示, tips:format是格式，如"yyyy-MM-dd HH:mm:ss"
-    func formatTime(format: String) -> String {
+    public func formatTime(format: String) -> String {
         let timeInterval:TimeInterval = TimeInterval(self)!
         let date = NSDate(timeIntervalSince1970:timeInterval)
         //格式话输出
@@ -34,14 +34,14 @@ extension String {
     }
     
     // MARK:- 获取一个字符串需要全部显示出来时需要的尺寸
-    func getSize(_ font: UIFont, size: CGSize) -> CGSize {
+    public func getSize(_ font: UIFont, size: CGSize) -> CGSize {
         let rect =  (self as NSString).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:font], context: nil)
         let size = rect.size
         return size
     }
     
     // MARK:- 验证手机
-    func vailMobile() -> Bool {
+    public func vailMobile() -> Bool {
         if (self as NSString).length < 11 {
             return false
         } else {
@@ -68,7 +68,7 @@ extension String {
     }
     
     // MARK:- 验证邮箱
-    func vailEMail() -> Bool {
+    public func vailEMail() -> Bool {
         //邮箱正则表达式
         let EMAIL = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         
@@ -83,7 +83,7 @@ extension String {
     }
     
     // MARK:- 时间转换成刚刚 几分钟前 几小时前等显示,self为时间戳
-    func updateTimeForRow() -> String {
+    public func updateTimeForRow() -> String {
         let currentTime = Date().timeIntervalSince1970
         let creatTime: Double = (self as NSString).doubleValue
         let time: Int = (Int)(currentTime - creatTime)
@@ -110,7 +110,7 @@ extension String {
     }
     
     // MARK:- 检测字符串只包含数字与字母
-    func limitAcc() -> Bool {
+    public func limitAcc() -> Bool {
         let regex = "^[a-zA-Z0-9_]*$";
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
         let isValid = predicate.evaluate(with: self)
@@ -118,7 +118,7 @@ extension String {
     }
     
     // MARK:- 分割字符串
-    func split(_ s:String)->[String]{
+    public func split(_ s:String)->[String]{
         if s.isEmpty{
             var x=[String]()
             for y in self {
@@ -130,7 +130,7 @@ extension String {
     }
     
     // MARK:- 检查是否包含某个字符串
-    func has(_ search:String)->Bool{
+    public func has(_ search:String)->Bool{
         let range = self.range(of: search)
         if range != nil {
             return true
